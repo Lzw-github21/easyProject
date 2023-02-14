@@ -31,7 +31,7 @@
 @GetMapping等同于@RequestMapping(method = { RequestMethod.GET })
 ```
 ##### 初始化项目模块apigateWay和dataServer
-```aidl
+```
 在server模块下添加新模块自动集成父级模块，不需要手动添加。
 父级模块<modules>中内容也会自动生成指向子模块
 ```
