@@ -1,11 +1,11 @@
 
 # day 1
-##### 设置svn或者git上传忽略
+### 设置svn或者git上传忽略
 ```
 1.点击File->Settings->Editor->File Types`
 2.选择 Ignored Files and Folders
 ```
-##### 项目启动类，启动基本依赖，测试helloWord接口添加
+### 项目启动类，启动基本依赖，测试helloWord接口添加
 ######相关依赖
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -30,9 +30,17 @@
 ```
 @GetMapping等同于@RequestMapping(method = { RequestMethod.GET })
 ```
-##### 初始化项目模块apigateWay和dataServer
+### 初始化项目模块apigateWay和dataServer
 ```
 在server模块下添加新模块自动集成父级模块，不需要手动添加。
 父级模块<modules>中内容也会自动生成指向子模块
 ```
 
+# day 2
+###1.添加yml配置文件
++ 找到resourse包，右键点击new ——> file ——> 名称取xxx.yml ——> 在文件下生成.yml文件
+### 2.修改启动端口号
+```
+server: 
+    port: XXXX
+````
