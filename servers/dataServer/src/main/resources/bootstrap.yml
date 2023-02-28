@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: dataServer
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        username: nacos
+        password: nacos
+        server-addr: 127.0.0.1:8848
+        namespace: test
+        file-extension: yaml
+        prefix: demo1
+        group: DEFAULT_GROUP
+      discovery:
+        server-addr: 127.0.0.1:8848
+        service: ${spring.application.name}
+        namespace: test

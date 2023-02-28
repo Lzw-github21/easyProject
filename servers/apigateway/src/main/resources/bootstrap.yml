@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: apigatewayServer  #服务名，也是注册的唯一标识  nacos中配置文件命名: Data ID: ${prefix}-${spring.profile.active}.${file-extension
+  #  profiles:
+  #    active: dev   #开发环境，可省略不配置,配置了yml文件名后边要跟 -dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848  #nacos地址
+        file-extension: yml   #文件后缀，可省略不配置
+        namespace: fd400533-0988-4fcc-9be8-35b3b1c61451  #命名空间.省略不配置时，默认使用的public命名空间。配置时，指向nacos创建的命名空间。
+        group: ${GROUP:DEFAULT_GROUP}
+        prefix: ${spring.application.name}
+        #file-extension: ${FILE_EXTENSION:yml}
+      discovery:
+        server-addr: localhost:8848 #配置nacos服务地址
+        namespace: ${NAMESPACE:fd400533-0988-4fcc-9be8-35b3b1c61451}

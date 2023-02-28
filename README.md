@@ -44,3 +44,29 @@
 server: 
     port: XXXX
 ````
+# day 3
+###1.项目整合nacos
+######遇到的问题
+```
+1.nacos依赖，在引入spring-cloud-alibaba-dependencies，无法集成springCloud中的nacos版本
+解决方法，将版本仲裁父级依赖放入<dependencyManagement>标签中。
+2.nacos配置 file-extension指定文件类型，相关博客中都为ymal，我项目中不生效，改为yml则生效，原因有待分析。
+3.nacos版本不兼容问题，通过springboot版本找到相应的spring-cloud-alibaba-dependencies版本，依靠父子项目版本仲裁规则解决依赖版本冲突问题。
+```
+###2. 实体类依赖 lombok
+```
+添加lombok依赖，相关注解使用方式有待归纳。
+```
+###3.通过注解开启异步。
+```
+具体使用方法
+1.添加依赖（有待验证是否需要添加）
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1.1-jre</version>
+        </dependency>
+2.启动类添加注解@EnableAsync(proxyTargetClass=true)开启异步
+3.创建线程池配置文件 两种写法，具体参考 --https://www.dianjilingqu.com/335384.html
+4.在异步类方法添加 @Async 注解，标识该类为异步。
+```
