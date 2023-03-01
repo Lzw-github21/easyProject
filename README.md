@@ -70,3 +70,21 @@ server:
 3.创建线程池配置文件 两种写法，具体参考 --https://www.dianjilingqu.com/335384.html
 4.在异步类方法添加 @Async 注解，标识该类为异步。
 ```
+
+# day 4
+###1.项目整合commonsLang3工具包，并整合整理相关用法
+######整理常用类
+```
+1.StringUtils.isEmpty() 判断字符串是否为空 ("") 或 null 不能判断空格
+2.StringUtils.isBlank 方法检查字符串是否为空格、空 ("") 或 null
+3.StringUtils.chomp("abc\r\n");//---"abc"  去除字符串中的"\n", "\r", or "\r\n"
+4.StringUtils.deleteWhitespace("   ab  c  "); 删除字符串中的梭有空格
+5.StringUtils.equalsIgnoreCase("ss", "Ss");  //不区分大小写--结果是true
+6.StringUtils.equals("abc", "abc");// //判断两字符串是否相同  可以判断null，都为null则相等
+7.StringUtils.split("a..b.c", '.');//---["a", "b", "c"] 分割字符串
+8.截取字符串
+  StringUtils.substring("abcd", 2);//---"cd"
+  StringUtils.substring("abcdef", 2, 4);//---"cd"
+9.left、right从左(右)开始截取n位字符
+  StringUtils.left("abc", 2);//---"ab"
+```

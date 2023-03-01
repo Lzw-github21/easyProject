@@ -74,8 +74,11 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-
-
+<!--    StringUtil等工具依赖包-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
 <!--        实体类lombok插件，简化实体类代码-->
         <dependency>
             <groupId>org.projectlombok</groupId>
