@@ -17,15 +17,14 @@ public class TestController {
     @Autowired
     AsyncServiceImpl asyncService;
 
+    /**
+     * 测试接口
+     * @param dateTime
+     * @return
+     */
     @GetMapping("/helloWorld")
     public String helloWorld(@RequestParam(value = "dateTime", required = false) String dateTime) {
-        System.out.println("编译测试");
-        return "helloWorld!";
-    }
-
-    @GetMapping("/SyncPoolExecutor")
-    public String helloWorld() {
-        publicServices.work();
+        System.out.println(dateTime);
         return "helloWorld!";
     }
 
@@ -33,7 +32,7 @@ public class TestController {
     public String asyncTest() throws InterruptedException {
         //不同类中异步方法生效
         //asyncService.asyncExample();
-        //同类中异步方法失效
+        //同类中异步方法失效(经验证同样生效)
         publicServices.work();
         return "helloWorld!";
     }

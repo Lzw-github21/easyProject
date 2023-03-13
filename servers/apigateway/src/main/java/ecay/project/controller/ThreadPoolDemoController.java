@@ -15,7 +15,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author xuliukai
+ * @author 李志威
  * @date 2023/2/20 11:48
  */
 @RestController
@@ -103,19 +103,6 @@ public class ThreadPoolDemoController {
         //线程池不会立刻关闭,而是等执行完正在执行的任务和队列中等待的任务后才彻底关闭。
         threadPoolExecutor.shutdown();
         return "执行成功";
-    }
-    public static boolean checkTaskCurrent(Long startTime) {
-        lock.lock();
-        if (taskCurrent >= taskSum) {
-            System.out.println("执行结束了。");
-            Long stopTime = System.currentTimeMillis();
-            System.out.println("实际消耗：" + (stopTime - startTime));
-            lock.unlock();
-            return false;
-        }
-        taskCurrent++;
-        lock.unlock();
-        return true;
     }
 
     /**
