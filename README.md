@@ -88,3 +88,26 @@ server:
 9.left、right从左(右)开始截取n位字符
   StringUtils.left("abc", 2);//---"ab"
 ```
+
+# day 5
+###1.项目修改不需要重新启动程序
+```
+快捷键：ctrl + shift + F1
+或
+右键类文件，build model ${modelName}
+```
+###2.整理线程池基本用法。
+
+###3.整理线程新建方法
+```
+new Thread(() -> {
+.....
+}).start();
+```
+
+###4.整理线程锁ReentrantLock()的基本用法。
+
+###5.重新整理Async实现异步方法
+```
+@Async标记的类和调用类不能在同一个类中，否则不生效。
+```

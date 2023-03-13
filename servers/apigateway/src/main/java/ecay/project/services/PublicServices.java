@@ -1,5 +1,7 @@
 package ecay.project.services;
 
+import org.springframework.scheduling.annotation.Async;
+
 public interface PublicServices {
 
     /**
@@ -7,4 +9,9 @@ public interface PublicServices {
      */
     void work();
 
+    /**
+     *
+     * @throws InterruptedException
+     */
+    void workBanch(String counter) throws InterruptedException;
 }

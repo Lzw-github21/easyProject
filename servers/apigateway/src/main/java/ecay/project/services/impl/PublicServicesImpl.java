@@ -4,7 +4,6 @@ import ecay.project.services.PublicServices;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -30,19 +29,13 @@ public class PublicServicesImpl implements PublicServices {
                 new LinkedBlockingDeque<>(1000),  //阻塞队列，保存操作请求线程
                 Executors.defaultThreadFactory(),   //创建线程的工厂类
                 new ThreadPoolExecutor.CallerRunsPolicy());  //拒绝策略
-        /*
-         * AbortPolicy：直接抛出异常，这是默认策略；
-         * CallerRunsPolicy：用调用者所在的线程来执行任务；
-         * DiscardOldestPolicy：丢弃阻塞队列中靠最前的任务，并执行当前任务；
-         * DiscardPolicy：直接丢弃任务；
-         */
 
         arrayList.forEach(list -> {
             threadPoolExecutor.execute(() -> {
                 atomicInteger.getAndIncrement();
                 int poolNum = atomicInteger.get();
                 try {
-                    this.workBanch(poolNum,atomicInteger);
+                    this.workBanch(String.valueOf(poolNum));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -54,26 +47,27 @@ public class PublicServicesImpl implements PublicServices {
         System.out.println("hell");
     }
 
-    public void work2(int poolNum,AtomicInteger atomicInteger) {
+    public void work2() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (int i = 0; i < 800; i++) {
+        for (int i = 0; i < 100; i++) {
             arrayList.add("12");
         }
         arrayList.forEach(list -> {
             try {
-                this.workBanch(poolNum,atomicInteger);
+                String i = "1";
+                this.workBanch(i);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
+        System.out.println("执行完了！");
     }
 
     @Async("threadPoolExecutor")
-    public void workBanch(int poolNum,AtomicInteger atomicInteger) throws InterruptedException {
-        //System.out.println("线程开始执行:" + count);
-        Thread.sleep(5000);
-        System.out.println("poolNum:"+poolNum +"atomicInteger:"+ atomicInteger+"Current Thread Name: " + Thread.currentThread().getName());
-        //System.out.println("线程执行完毕:" + count);
+    @Override
+    public void workBanch(String couter) throws InterruptedException {
+        Thread.sleep(50000);
+        System.out.println("Current Thread Name: " + Thread.currentThread().getName());
         return;
     }
 }
