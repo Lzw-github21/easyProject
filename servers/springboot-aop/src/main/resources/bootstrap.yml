@@ -1,0 +1,5 @@
+server:
+  port: 28801
+spring:
+  application:
+    name: SpringBootAopServer

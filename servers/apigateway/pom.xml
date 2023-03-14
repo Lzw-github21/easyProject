@@ -10,5 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>apigateway</artifactId>
 
+    <dependencies>
+    <!--    nacos配置中心，注意版本号需要和spring-boot-starter-parent版本保持一致，否则报错-->
+    <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+    </dependency>
+    <!--    nacos注册中心-->
+    <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+    </dependency>
+    </dependencies>
 
 </project>
