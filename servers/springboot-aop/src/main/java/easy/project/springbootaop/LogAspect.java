@@ -35,8 +35,10 @@ public class LogAspect {
         reference pointcut：表示引用其他命名切入点，只有@ApectJ风格支持，Schema风格不支持。
     */
 //    @Pointcut("execution(public * cn.huanzi.qch.springbootaop.SpringbootAopApplication.index(..))")//用于匹配方法执行
-    @Pointcut("@annotation(cn.huanzi.qch.springbootaop.MyAnnotation)")//用于匹配带有注解的方法
-    public void webLog(){}
+    @Pointcut("@annotation(easy.project.springbootaop.MyAnnotation)")//用于匹配带有注解的方法
+    public void webLog(){
+        System.out.println("切入点！");
+    }
 
     /**
      * 环绕通知
