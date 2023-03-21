@@ -111,3 +111,21 @@ new Thread(() -> {
 ```
 @Async标记的类和调用类不能在同一个类中，否则不生效。
 ```
+# day 6
+```
+一.整合filter过滤器相关知识点
+
+1.实现Filter接口，用@WebFilter注解，指定拦截路径以及一些参数，同时需要在启动类使用@ServletComponentScan扫描带@WebFilter、@WebServlet、@WebListener并将帮我们注入bean
+2.实现类加@WebFilter(filterName = "testFilter",urlPatterns = {"/test"})
+3.默认不通过，返回状态码200，没有任何返回结果，通过response.setstatus设置返回状态，并手动抛出异常，结合统一异常处理，实现鉴权失败的异常处理。
+```
+
+```
+二.补充Aop切面相关知识点
+
+1.添加依赖 spring-boot-starter-aop
+2.自定义切面注解
+3.切面类添加@Aspect@Component，切面类方法通过@Pointcut("@annotation(easy.project.springbootaop.MyAnnotation)")指定切入点。
+4.切面类方法通过@Around，@Before，@After等指定切面过程中的对应操作。
+```
+

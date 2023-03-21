@@ -1,0 +1,7 @@
+server:
+  port: 28700
+spring:
+  application:
+    name: springboot-filter
+  main:
+    allow-bean-definition-overriding: true
