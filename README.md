@@ -129,3 +129,9 @@ new Thread(() -> {
 4.切面类方法通过@Around，@Before，@After等指定切面过程中的对应操作。
 ```
 
+#day7
+```
+通过手动获取bean，可以不用@Autowired,复制是容易操作。
+SecurityHelper securityHelper = SpringContextUtil.getBean(SecurityHelper.class);
+
+```
