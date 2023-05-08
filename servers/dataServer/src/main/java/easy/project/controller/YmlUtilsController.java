@@ -1,6 +1,6 @@
 package easy.project.controller;
 
-import easy.project.configproperties.EcaConfiguration;
+import easy.project.model.EcaConfiguration;
 import easy.project.util.YmlUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
