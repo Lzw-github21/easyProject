@@ -3,3 +3,13 @@ server:
 spring:
   application:
     name: SpringBootAopServer
+  #配置视图解析
+  thymeleaf:
+    encoding: UTF-8
+    #servlet:
+    #  content-type: text/html
+    # 此处不定义默认选择 templates 路径下资源
+    prefix: classpath:/view/
+    suffix: .html
+    #mode: LEGACYHTML5
+    #cache: false

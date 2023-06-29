@@ -15,3 +15,13 @@ spring:
       discovery:
         server-addr: localhost:8848 #配置nacos服务地址
         namespace: ${NAMESPACE:fd400533-0988-4fcc-9be8-35b3b1c61451}
+#配置日志输入位置和级别
+logging:
+  level:
+    #日志级别：ERROR, WARN, INFO, DEBUG , TRACE
+    root: INFO
+    #root: DEBUG
+    #root: DEBUG
+  file:
+    path: /logs
+    name: springBootDataServer.log
