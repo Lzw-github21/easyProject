@@ -1,5 +1,11 @@
 server:
-  port: 28710
+  port: 28703
 spring:
   application:
     name: testServer
+#跨域配置
+cors:
+  #是否允许跨域请求
+  AllowCors: true
+  #允许跨域请求白名单,只有在AllowCors值为true的时候该配置生效
+  AllowedOrigins: http://localhost:28720

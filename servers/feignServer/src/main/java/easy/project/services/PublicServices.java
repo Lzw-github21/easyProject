@@ -8,7 +8,7 @@ public interface PublicServices {
 
     JSONObject getJsonInfo(String params, String header,String bodyParam, JSONObject body);
 
-    JSONObject getUserConfigJsonInfo(String params, String header, JSONObject body);
+    JSONObject getUserConfigJsonInfo(String params, String header, String bodyParam,JSONObject body);
 
     JSONObject getFileDataInfo();
 }

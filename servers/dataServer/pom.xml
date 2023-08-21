@@ -11,6 +11,10 @@
     <artifactId>dataServer</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <!--    nacos配置中心，注意版本号需要和spring-boot-starter-parent版本保持一致，否则报错-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

@@ -27,17 +27,10 @@ import java.util.Base64;
 public class TestController {
     /**
      * 测试接口
-     * @param dateTime
      * @return
      */
     @GetMapping("/helloWorld")
-    public String helloWorld(@RequestParam(value = "dateTime", required = false) String dateTime) {
-        System.out.println("修改文件后不重启项目，文件生效");
-        log.info("这是一条日志");
-        //log.info("带信息输出的日志内容",new Throwable());
-        log.info("My important information: {},{}", "myVariable","myVariable");
-        String formatter = String.format("My name is %s, I am %d years old, and my salary is %.2f", "name", 12, 5.86);
-        System.out.println(formatter);
+    public String helloWorld() {
         return "helloWorld!";
     }
 

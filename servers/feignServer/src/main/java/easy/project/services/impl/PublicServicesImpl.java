@@ -29,8 +29,8 @@ public class PublicServicesImpl implements PublicServices {
         return myFeignClient.getJsonUserIp(params,header,bodyParam,body);
     }
     @Override
-    public JSONObject getUserConfigJsonInfo(String params, String header, JSONObject body) {
-        return MyFeignClientUseConfig.getJsonUserIp(params,header,body);
+    public JSONObject getUserConfigJsonInfo(String params, String header,String bodyParam, JSONObject body) {
+        return MyFeignClientUseConfig.getJsonUserIp(params,header,bodyParam,body);
     }
     @Override
     public JSONObject getFileDataInfo() {

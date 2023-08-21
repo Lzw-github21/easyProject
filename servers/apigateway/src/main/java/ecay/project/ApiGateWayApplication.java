@@ -11,6 +11,7 @@ public class ApiGateWayApplication{
     public static void main(String[] args) {
         System.out.println("==========================开始启动================================");
         SpringApplication.run(ApiGateWayApplication.class,args);
+        System.out.println("App_GateWay!");
         System.out.println("==========================启动成功================================");
     }
 }

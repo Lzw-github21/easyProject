@@ -11,16 +11,56 @@
     <artifactId>apigateway</artifactId>
 
     <dependencies>
-    <!--    nacos配置中心，注意版本号需要和spring-boot-starter-parent版本保持一致，否则报错-->
-    <dependency>
-        <groupId>com.alibaba.cloud</groupId>
-        <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-    </dependency>
-    <!--    nacos注册中心-->
-    <dependency>
-        <groupId>com.alibaba.cloud</groupId>
-        <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-    </dependency>
+        <!--    nacos配置中心，注意版本号需要和spring-boot-starter-parent版本保持一致，否则报错-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!--    nacos注册中心-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+<!--        &lt;!&ndash;        SpringCould核心依赖&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-bootstrap</artifactId>-->
+<!--        </dependency>-->
+
+        <!--spring-gateway网关-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gateway-server &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-gateway-server</artifactId>-->
+<!--            &lt;!&ndash;            <version>3.0.7</version>&ndash;&gt;-->
+<!--        </dependency>-->
+        <!--    阻塞式redis，基于redis进行限流控制会用到-->
+        <!--@Autowired
+        private StringRedisTemplate stringRedisTemplate;
+        public void testRedis() {
+        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+        ops.set("key", "value");
+        String value = ops.get("key");
+        System.out.println(value);
+        }-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--    响应式redis-->
+        <!-- @Autowired
+        private ReactiveStringRedisTemplate redisTemplate;
+        public void testReactiveRedis() {
+        redisTemplate.opsForValue().set("key", "value").subscribe();
+        }-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

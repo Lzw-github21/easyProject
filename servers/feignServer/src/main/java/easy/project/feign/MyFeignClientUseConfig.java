@@ -3,7 +3,6 @@ package easy.project.feign;
 import com.alibaba.fastjson.JSONObject;
 import easy.project.config.MyFeignConfig;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -24,6 +23,7 @@ public interface MyFeignClientUseConfig {
     @PostMapping("test/getJsonUserInfo")
     JSONObject getJsonUserIp(@RequestParam("param") String param,
                              @RequestHeader("header") String header,
+                             @RequestParam("bodyParam") String bodyParam,
                              @RequestBody JSONObject requestBody);
     @PostMapping("test/getFileDataInfo")
     JSONObject getFileDataInfo();
