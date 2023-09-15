@@ -1,6 +1,6 @@
 spring:
   application:
-    name: apigatewayServer  #服务名，也是注册的唯一标识  nacos中配置文件命名: Data ID: ${prefix}-${spring.profile.active}.${file-extension
+    name: api-gatewayserver  #服务名，也是注册的唯一标识  nacos中配置文件命名: Data ID: ${prefix}-${spring.profile.active}.${file-extension
   #  profiles:
   #    active: dev   #开发环境，可省略不配置,配置了yml文件名后边要跟 -dev
   cloud:
