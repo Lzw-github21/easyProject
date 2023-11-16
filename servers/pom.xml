@@ -21,6 +21,9 @@
         <module>springboot-async</module>
         <module>feignServer</module>
         <module>fileServer</module>
+        <module>springboot-eventsandlisteners</module>
+        <module>springboot-websocket</module>
+        <module>springboot-filterAndInterceptor</module>
     </modules>
 
     <properties>
@@ -62,7 +65,6 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>30.1.1-jre</version>
         </dependency>
         <!--        fastJson依赖-->
         <dependency>
