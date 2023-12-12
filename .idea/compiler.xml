@@ -2,15 +2,39 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="servers" />
+        <module name="apigateway" />
+        <module name="javaGuid" />
+        <module name="dataServer" />
+        <module name="springboot-websocket" />
+        <module name="eca-wechat" />
+        <module name="springboot-aop" />
+        <module name="springboot-async" />
+        <module name="springboot-filter" />
+        <module name="feignServer" />
+        <module name="testServer" />
+        <module name="springboot-eventsandlisteners" />
+        <module name="fileServer" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="servers" target="1.5" />
-    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="apigateway" options="-parameters" />
+      <module name="dataServer" options="-parameters" />
+      <module name="eca-wechat" options="-parameters" />
+      <module name="feignServer" options="-parameters" />
+      <module name="fileServer" options="-parameters" />
+      <module name="springboot-aop" options="-parameters" />
+      <module name="springboot-async" options="-parameters" />
+      <module name="springboot-eventsandlisteners" options="-parameters" />
+      <module name="springboot-filter" options="-parameters" />
+      <module name="springboot-websocket" options="-parameters" />
+      <module name="testServer" options="-parameters" />
+    </option>
   </component>
 </project>
