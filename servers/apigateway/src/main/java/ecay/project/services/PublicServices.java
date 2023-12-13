@@ -2,6 +2,7 @@ package ecay.project.services;
 
 public interface PublicServices {
 
+
     public void work();
     /**
      *
