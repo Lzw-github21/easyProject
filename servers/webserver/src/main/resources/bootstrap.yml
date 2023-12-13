@@ -1,26 +1,12 @@
 server:
-  port: 28810
-  compression:
-    enabled: true
-    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+  port: 28710
 spring:
-  profiles:
-    active: dev
   application:
-    name: j-webserver
-  cloud:
-    nacos:
-      discovery:
-        server-addr: ${NACOS_HOST:eca-register}:${NACOS_PORT:8848}
-        namespace: ${NAMESPACE:eca}
-      config:
-        server-addr: ${spring.cloud.nacos.discovery.server-addr}
-        file-extension: ${FILE_EXTENSION:yml}
-        group: ${GROUP:DEFAULT_GROUP}
-        prefix: ${spring.application.name}
-        namespace: ${NAMESPACE:eca}
-        shared-configs:
-          - data-id: common-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-            refresh: true
-          - data-id: ecasqls-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-            refresh: true
+    name: testServer
+  mvc:
+    #定义匹配文件路径的url
+    static-path-pattern: /**
+  resources:
+    #定义匹配文件路径
+    #加了此配置只能访问到ip+端口号/
+    static-locations: classpath:/web/

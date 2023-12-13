@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.ecasoft.wechat.api.service.impl.WeChatServiceImpl,\
-  cn.ecasoft.wechat.api.config.WeChatAutoConfiguration,\
-  cn.ecasoft.wechat.api.config.WeChatProperties

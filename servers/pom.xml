@@ -24,6 +24,7 @@
         <module>springboot-eventsandlisteners</module>
         <module>springboot-websocket</module>
         <module>springboot-filterAndInterceptor</module>
+        <module>webServer</module>
     </modules>
 
     <properties>
@@ -50,6 +51,12 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
+<!--        bootstrap.yml配置文件生效，application和bootstrap两个配置文件出现重复配置，会取application-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <version>3.0.1</version>
+        </dependency>
         <!--    StringUtil等工具依赖包-->
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -73,5 +80,61 @@
             <version>1.2.83</version>
         </dependency>
     </dependencies>
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>copy-resources</goal>
+                            </goals>
+                            <configuration>
+                                <!-- 资源文件输出目录 -->
+                                <outputDirectory>${project.build.directory}/resources</outputDirectory>
+                                <resources>
+                                    <resource>
+                                        <directory>src/main/resources</directory>
+                                    </resource>
+                                </resources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- 分离lib  -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <!-- 依赖包输出目录 -->
+                                <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                                <excludeTransitive>false</excludeTransitive>
+                                <stripVersion>false</stripVersion>
+                                <!-- 依赖包的作用域 -->
+                                <includeScope></includeScope>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
 

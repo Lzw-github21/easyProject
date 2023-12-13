@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: testServer
+  mvc:
+    #定义匹配文件路径的url
+    static-path-pattern: /**
+  resources:
+    #定义匹配文件路径
+    #加了此配置只能访问到ip+端口号/
+    static-locations: classpath:/web/
