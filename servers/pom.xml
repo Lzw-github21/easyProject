@@ -25,6 +25,7 @@
         <module>springboot-websocket</module>
         <module>springboot-filterAndInterceptor</module>
         <module>webServer</module>
+        <module>redisTestServer</module>
     </modules>
 
     <properties>
