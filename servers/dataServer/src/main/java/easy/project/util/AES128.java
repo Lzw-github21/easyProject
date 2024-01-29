@@ -14,7 +14,6 @@ public class AES128 {
 
     private static final String ALGORITHM = "AES";
     private static final String TRANSFORMATION = "AES/CBC/PKCS5Padding";
-    private static final int KEY_SIZE = 128;
 
     public static byte[] encrypt(byte[] key, byte[] iv, byte[] data) throws Exception {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key, ALGORITHM);
@@ -34,14 +33,12 @@ public class AES128 {
     }
 
     public static void main(String[] args) throws Exception {
-        byte[] key = "0123456789abcde4".getBytes();
+        byte[] key = "0123456789abcdef0123456789abcdef".getBytes();
         byte[] iv = "abcdef0123456789".getBytes();
-        byte[] data = "Hello, AES-128!,alfjdslfjalskdf".getBytes();
+        byte[] data = "测试企业统一信用代码".getBytes();
 
         byte[] encryptedData = encrypt(key, iv, data);
         byte[] decryptedData = decrypt(key, iv, encryptedData);
-
-
         System.out.println(new String(encryptedData)); // 输出加密后的数据
         System.out.println(new String(decryptedData)); // 输出解密后的数据
     }

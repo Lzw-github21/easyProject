@@ -1,5 +1,5 @@
 server:
-  port: 28703
+  port: 28700
 spring:
   application:
     name: testServer
