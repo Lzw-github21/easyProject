@@ -26,6 +26,7 @@
         <module>springboot-filterAndInterceptor</module>
         <module>webServer</module>
         <module>redisTestServer</module>
+        <module>dbHelpServer</module>
     </modules>
 
     <properties>
