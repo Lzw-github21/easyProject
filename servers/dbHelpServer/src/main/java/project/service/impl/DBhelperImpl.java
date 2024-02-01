@@ -96,9 +96,8 @@ public class DBhelperImpl implements DBhelper {
      *
      * @param datasourceGuid
      * @return
-     * @throws Exception
      */
-    private DataSource getDataSource(String datasourceGuid, boolean isSlave) throws Exception {
+    private DataSource getDataSource(String datasourceGuid, boolean isSlave) {
         if (datasourceGuid == null || datasourceGuid.isEmpty()) {
             datasourceGuid = this.ecaConfig.getDataSources().get(0).getGuid();
         }
@@ -182,11 +181,11 @@ public class DBhelperImpl implements DBhelper {
         final String SQL_KEY = "select-datasource";
         ecaSqlsConfig.getMap().put(SQL_KEY, sql);
         List<EcaDataSourceProperties> dataSources = new ArrayList<>();
-        try {
-            dataSources = this.QueryProjectDataSources("", SQL_KEY);
-        } catch (Exception e) {
-            log.error("加载多数据源出错：{}", e.getMessage());
-        }
+//        try {
+//            dataSources = this.QueryProjectDataSources("", SQL_KEY);
+//        } catch (Exception e) {
+//            log.error("加载多数据源出错：{}", e.getMessage());
+//        }
         return dataSources;
     }
 
@@ -246,9 +245,8 @@ public class DBhelperImpl implements DBhelper {
      *
      * @param datasourceGuid
      * @return
-     * @throws Exception
      */
-    private Dao getDao(String datasourceGuid, boolean isSlave) throws Exception {
+    private Dao getDao(String datasourceGuid, boolean isSlave) {
         String key = datasourceGuid + (isSlave ? "_Slave" : "");
         if (this._Daos.containsKey(key)) {
             return this._Daos.get(key);
