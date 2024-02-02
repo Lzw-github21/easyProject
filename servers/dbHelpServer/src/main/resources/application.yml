@@ -19,6 +19,14 @@ security-key:
   md5-pwd-key: 'johnny depp'
 #数据源配置
 eca:
+  # sql配置
+  sqls:
+    map: {
+      selecttest1: "select SLEEP(60)",
+      selecttest2: "select SLEEP(1)",
+      selecttest3: "select * from dic_area",
+      selecttest4: "select SLEEP(6000)"
+    }
   # 默认连接池配置
   defaultDruidConfig:
     # 初始化时建立物理连接的个数
@@ -56,14 +64,14 @@ eca:
       name: Mysql
       username: root
       password: ZGiPB4Kc6K4=
-      url: jdbc:mysql://127.0.0.1:3306/eca_mysql?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+      url: jdbc:mysql://127.0.0.1:3306/eca_mysql?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
       druid:
         # 初始化时建立物理连接的个数
         initialSize: 5
         # 连接池的最小空闲数量
         minIdle: 5
         # 连接池最大连接数量
-        maxActive: 200
+        maxActive: 20
         # 获取连接时最大等待时间，单位毫秒
         maxWait: 800
         # 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
@@ -88,6 +96,8 @@ eca:
         useGlobalDataSourceStat: true
         # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
         connectProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        
 
 
   licence: ZXlKRVpYWnBZMlZKUkNJNklrRkNRMFJGUmtjaUxDSk1hV05sYm1ObFFYQndJam9pUlVOQk1pNHdMVXBCVmtFaUxDSk1hV05sYm1ObFJXNWtJam9pTWpBeU5DMHdOaTB6TUNKOSBtTDBOOWQrMlhwbWRUMkdTRU9QVmExWDRKTmhCV3lrNHFGRTJPZEN4eWx2TDE5NG9GM2syYWNVeXI1eVhjQVkvTzR0SXJUZFM2a0tDRVltbEJuMWFva0pHbG1NbW9ieHlqQXdQbFhzWThYMHIzd1dHN2VVOFNkNE1BK215YjU5WU9PNmhTbUpYSEtKT0x6Q0NPRUpXc0NQSnVBanBJbmpneEl4bkdSMkthK3M9
+

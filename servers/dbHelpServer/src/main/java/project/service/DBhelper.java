@@ -1,4 +1,4 @@
-package project.service.impl;
+package project.service;
 
 import org.nutz.dao.sql.SqlCallback;
 import project.entity.basic.DBType;
