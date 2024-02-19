@@ -21,7 +21,7 @@ public class TestController {
 
     @GetMapping("/")
     private void test() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 20; i++) {
             Thread t1 = new Thread(() -> {
                 System.out.println(Thread.currentThread() + "3");
                 try {

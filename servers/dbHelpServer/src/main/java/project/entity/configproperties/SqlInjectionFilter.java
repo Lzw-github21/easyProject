@@ -84,6 +84,9 @@ public class SqlInjectionFilter implements Filter {
         // 1.POST请求获取参数
         if ("POST".equals(request.getMethod().toUpperCase())) {
             String body = requestWrapper.getBody();
+            if(body.equals("")){
+                body = "{}";
+            }
             paramMap = JSONObject.parseObject(body, HashMap.class);
         } else {
             Map<String, String[]> parameterMap = requestWrapper.getParameterMap();

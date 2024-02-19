@@ -21,9 +21,10 @@ public class DbhelpSelectServer {
     DBhelper dBhelper;
 
     public void test1() throws Exception {
+        System.out.println("开始执行!");
         DataTable dataRows;
         dataRows = dBhelper.QueryDataTable("","selecttest1",new HashMap<>());
-        System.out.println(dataRows);
+        System.out.println("输出结果"+dataRows);
     }
     public void test2() throws Exception {
         DataTable dataRows;
