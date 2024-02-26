@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/easyProject.iml" filepath="$PROJECT_DIR$/easyProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java8/java8.iml" filepath="$PROJECT_DIR$/java8/java8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servers/webserver/webServer.iml" filepath="$PROJECT_DIR$/servers/webserver/webServer.iml" />
     </modules>
   </component>
 </project>

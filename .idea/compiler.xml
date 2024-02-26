@@ -7,34 +7,46 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="apigateway" />
         <module name="javaGuid" />
         <module name="dataServer" />
-        <module name="springboot-websocket" />
-        <module name="eca-wechat" />
+        <module name="webServer" />
+        <module name="redisTestServer" />
         <module name="springboot-aop" />
-        <module name="springboot-async" />
         <module name="springboot-filter" />
+        <module name="my-batis-plus" />
         <module name="feignServer" />
+        <module name="fileServer" />
+        <module name="apigateway" />
+        <module name="springboot-websocket" />
+        <module name="dbHelpServer" />
+        <module name="springboot-async" />
         <module name="testServer" />
         <module name="springboot-eventsandlisteners" />
-        <module name="fileServer" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eca-wechat" target="8" />
+      <module name="webserver" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="apigateway" options="-parameters" />
       <module name="dataServer" options="-parameters" />
+      <module name="dbHelpServer" options="-parameters" />
       <module name="eca-wechat" options="-parameters" />
       <module name="feignServer" options="-parameters" />
       <module name="fileServer" options="-parameters" />
+      <module name="my-batis-plus" options="-parameters" />
+      <module name="redisTestServer" options="-parameters" />
       <module name="springboot-aop" options="-parameters" />
       <module name="springboot-async" options="-parameters" />
       <module name="springboot-eventsandlisteners" options="-parameters" />
       <module name="springboot-filter" options="-parameters" />
       <module name="springboot-websocket" options="-parameters" />
       <module name="testServer" options="-parameters" />
+      <module name="webServer" options="-parameters" />
+      <module name="webserver" options="-parameters" />
     </option>
   </component>
 </project>

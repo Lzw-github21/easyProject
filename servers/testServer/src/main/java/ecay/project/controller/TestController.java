@@ -19,7 +19,9 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/test")
@@ -121,7 +123,10 @@ public class TestController {
         jsonObject.put("bodyParam",bodyParam);
         jsonObject.put("body",body);
         jsonObject.put("param",param);
+        List<String> list = new ArrayList();
         return jsonObject;
     }
+
+
 
 }

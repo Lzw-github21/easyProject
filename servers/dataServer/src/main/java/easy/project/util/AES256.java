@@ -12,7 +12,7 @@ import java.util.Base64;
  * @author 李志威
  * @date 2023/4/20
  */
-public class AES加密 {
+public class AES256 {
 
     private static final String ALGORITHM = "AES";
     private static final String TRANSFORMATION = "AES/CBC/PKCS5Padding";

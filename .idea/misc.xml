@@ -5,12 +5,13 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/servers/pom.xml" />
-        <option value="$PROJECT_DIR$/eca-wechat/pom.xml" />
         <option value="$PROJECT_DIR$/servers/testServer/pom.xml" />
         <option value="$PROJECT_DIR$/servers/springboot-websocket/pom.xml" />
         <option value="$PROJECT_DIR$/servers/springboot-filterAndInterceptor/pom.xml" />
         <option value="$PROJECT_DIR$/servers/springboot-eventsandlisteners/pom.xml" />
         <option value="$PROJECT_DIR$/javaGuid/pom.xml" />
+        <option value="$PROJECT_DIR$/servers/webserver/pom.xml" />
+        <option value="$PROJECT_DIR$/servers/my-batis-plus/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
