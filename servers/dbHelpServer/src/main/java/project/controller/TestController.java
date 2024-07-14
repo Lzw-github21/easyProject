@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.DispatcherServlet;
-import project.service.DBhelper;
 import project.service.impl.DbhelpSelectServer;
 
 import javax.servlet.ServletException;
@@ -16,12 +15,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.PublicKey;
-import java.security.Signature;
 import java.util.HashMap;
 import java.util.Map;
 
-import static project.controller.RSAUtil.decoder;
 
 /**
  * @author 李志威
@@ -37,7 +33,7 @@ public class TestController {
 
     @GetMapping("/")
     private void test() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 3; i++) {
             Thread t1 = new Thread(() -> {
                 System.out.println(Thread.currentThread() + "3");
                 try {

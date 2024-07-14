@@ -23,7 +23,10 @@ public class DbhelpSelectServer {
     public void test1() throws Exception {
         System.out.println("开始执行!");
         DataTable dataRows;
-        dataRows = dBhelper.QueryDataTable("","selecttest1",new HashMap<>());
+        // mysql库连接测试
+        // dataRows = dBhelper.QueryDataTable("","selecttest1",new HashMap<>());
+        // dmstand库连接测试
+        dataRows = dBhelper.QueryDataTable("f275649b-27c7-11ef-9b67-bceca04cb464","selecttest1",new HashMap<>());
         System.out.println("输出结果"+dataRows);
     }
     public void test2() throws Exception {
