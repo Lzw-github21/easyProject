@@ -1,31 +1,110 @@
 server:
   port: 28703
 spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848  #nacos地址
+        file-extension: yml   #文件后缀，可省略不配置
+        namespace: fd400533-0988-4fcc-9be8-35b3b1c61451  #命名空间.省略不配置时，默认使用的public命名空间。配置时，指向nacos创建的命名空间。
+        group: ${GROUP:DEFAULT_GROUP}
+        prefix: ${spring.application.name}
+        #file-extension: ${FILE_EXTENSION:yml}
+      discovery:
+        server-addr: localhost:8848 #配置nacos服务地址
+        namespace: ${NAMESPACE:fd400533-0988-4fcc-9be8-35b3b1c61451}
+  # 等价于@SpringBootApplication (exclude = {DataSourceAutoConfiguration.class})，但是此处前者不生效，后者生效，但是该配置具有更高的优先级。
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   application:
     name: testServer
-  redis:
-    host: 127.0.0.1
-    #Redis服务器连接端口
-    port: 6379
-    #Redis服务器连接密码（默认为空）
-    password:
-    lettuce:
-      # 关闭超时时间
-      shutdown-timeout: 100
-      pool:
-        #连接池中的最大空闲连接
-        max-idle: 15
-        #连接池中的最小空闲连接
-        min-idle: 0
-        #连接池最大连接数（使用负值表示没有限制）
-        max-active: 15
-        #连接池最大阻塞等待时间（使用负值表示没有限制）
-        max-wait: 1000
     #连接超时时间（毫秒）
     timeout: 100000
+  # 如果要使用dBhelp，必须配置该参数，否则报错 ，url' attribute is not specified and no embedded datasource could be configured
+  datasource:
+    druid:
+      filter:
+        slf4j:
+          enable: true
+      stat-view-servlet:
+        # 是否启用StatViewServlet默认值true
+        enabled: true
+        # 访问路径为/druid时，跳转到StatViewServlet
+        url-pattern: /druid/*
+        # 是否能够重置数据
+        reset-enable: false
 #跨域配置
 cors:
   #是否允许跨域请求
   AllowCors: true
   #允许跨域请求白名单,只有在AllowCors值为true的时候该配置生效
   AllowedOrigins: http://localhost:28720
+# 数据库密码解密key
+security-key:
+  jwt-key: '022bdc63c3c5a45879ee6581508b9d03adfec4a4658c0ab3d722e50c91a351c42c231cf43bb8f86998202bd301ec52239a74fc0c9a9aeccce604743367c9646b'
+  md5-key: 'consmationecasof'
+  md5-pwd-key: 'johnny depp'
+dmip: 192.168.1.83
+mysqlip: 127.0.0.1
+dmpass: k71+gtwGcFhL7tHFQUbU2w==
+mysqlpass: ZGiPB4Kc6K4=
+#数据源配置
+eca:
+  # 默认连接池配置
+  defaultDruidConfig:
+    # 初始化时建立物理连接的个数
+    initialSize: 5
+    # 连接池的最小空闲数量
+    minIdle: 5
+    # 连接池最大连接数量
+    maxActive: 200
+    # 获取连接时最大等待时间，单位毫秒
+    maxWait: 800
+    # 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+    testWhileIdle: true
+    # 既作为检测的间隔时间又作为testWhileIdel执行的依据
+    timeBetweenEvictionRunsMillis: 60000
+    # 销毁线程时检测当前连接的最后活动时间和当前时间差大于该值时，关闭当前连接(配置连接在池中的最小生存时间)
+    minEvictableIdleTimeMillis: 30000
+    # 用来检测数据库连接是否有效的sql 必须是一个查询语句(oracle中为 select 1 from dual)
+    validationQuery: select 1
+    # 申请连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+    testOnBorrow: true
+    # 归还连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+    testOnReturn: false
+    # 是否缓存preparedStatement, 也就是PSCache,PSCache对支持游标的数据库性能提升巨大，比如说oracle,在mysql下建议关闭。
+    poolPreparedStatements: false
+    # 置监控统计拦截的filters，去掉后监控界面sql无法统计，stat: 监控统计、Slf4j:日志记录、waLL: 防御sqL注入
+    filters: stat,wall,slf4j
+    # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。在Druid中，不会存在Oracle下PSCache占用内存过多的问题，可以把这个数值配置大一些，比如说100
+    maxPoolPreparedStatementPerConnectionSize: -1
+    # 合并多个DruidDataSource的监控数据
+    useGlobalDataSourceStat: true
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  data-sources:
+    - guid: 12345678-0000-467d-8609-473195a02fcc
+      name: Mysql
+      username: root
+      password: ZGiPB4Kc6K4=
+      url: jdbc:mysql://127.0.0.1:3306/eca_mysql?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+
+    - guid: 12345678-1111-467d-8609-473195a02fcc
+      name: 达梦(dee主库_dmstand)
+      username: dmstand
+      password: ${dmpass}
+      url: jdbc:dm://${dmip}:5236/DMSTAND?useUnicode=true&characterEncoding=utf-8&mark=ecamaster
+      #      url: jdbc:dm://192.168.1.149:5236/DMSTANDSP?useUnicode=true&characterEncoding=utf-8
+      driverClassName: dm.jdbc.driver.DmDriver
+  sqls:
+    map: {
+      getpkvalue: 'call GetPKValue (?tablename,?fieldname,?OUTpkvalue,?ds_id)',
+      #添加日志
+      perm-insertsyslog: 'INSERT INTO SYS_LOG_SERVICE (PKID, USERID, USERNAME, REQIP, REQURL, REQTIME, REQMETHOD, REQPARAMS, RESMS, RESSTATUSCODE, EXCEPTION) VALUES (@PKID, @USERID, @USERNAME, @REQIP, @REQURL, @REQTIME, @REQMETHOD, @REQPARAMS, @RESMS, @RESSTATUSCODE, @EXCEPTION)',
+      test-demo: 'SELECT ST_ID, ST_NAME, ST_LOGINNAME, ST_PASSWD, ST_SIGN, ST_SIGNFILETYPE'
+    }
+
+
+
+  licence: ZXlKRVpYWnBZMlZKUkNJNklrRkNRMFJGUmtjaUxDSk1hV05sYm1ObFFYQndJam9pUlVOQkxVcEJWa0V5TGpBaUxDSk1hV05sYm1ObFJXNWtJam9pTWpBeU5TMHdOaTB6TUNKOSBNYkhtSm5FYmhpMlE5WS93YzNKWVdYeDM5a1IxcUM4WjYwS1NBZ1FHOEJNaWtqR2pKSlp5UkZ5M0xKV2IvakhaZ0dGanJUa1o2bnVka1hRVWtlZVlCM0YyVG9EeXYyZERud3g1TmJTa294WnZVT0VlWm95V2NBM2duYnIrWU96K0IxdktZRzg1bDVBWTZiVUYrNTJyR3JtdWYvRnlTdUp6M2R6L2RMZ0xvOXM9
+

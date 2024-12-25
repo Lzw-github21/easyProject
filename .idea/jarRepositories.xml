@@ -26,5 +26,10 @@
       <option name="name" value="Central Repository" />
       <option name="url" value="http://nexus.ecasoft.cn/repository/maven-public/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="nexus_snapshot_repository" />
+      <option name="name" value="nexus_snapshot_repository" />
+      <option name="url" value="http://nexus.ecasoft.cn/repository/maven-public/" />
+    </remote-repository>
   </component>
 </project>

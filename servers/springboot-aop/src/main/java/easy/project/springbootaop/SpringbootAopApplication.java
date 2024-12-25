@@ -1,5 +1,6 @@
 package easy.project.springbootaop;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,18 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 //@CrossOrigin(origins = {"http://localhost:80","http://127.0.0.1:80","http://localhost:28700"})
 public class SpringbootAopApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringbootAopApplication.class, args);
-    }
 
-    @MyAnnotation("aop测试")
-    @MyAnnotation2("aop测试2")
-    @RequestMapping("/")
-    public String index(@RequestParam (value = "queryParms") String parms,
-                        @RequestParam (value = "type") String type){
-        log.info("这是日志输出queryParms:{},type:{}",parms,type);
-        return "欢迎访问 springboot-aop";
-    }
 
     /**
      * 获取请求ip
@@ -60,6 +50,7 @@ public class SpringbootAopApplication {
         System.out.println(ipAddress);
         return ipAddress;
     }
+
     /**
      * 登录
      */
@@ -67,4 +58,5 @@ public class SpringbootAopApplication {
     public ModelAndView ajaxTest(HttpServletRequest request) {
         return new ModelAndView("test.html");
     }
+
 }
