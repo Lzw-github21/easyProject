@@ -17,6 +17,9 @@
         <druid-spring-boot-starter.version>1.2.8</druid-spring-boot-starter.version>
         <jsqlparser.version>3.0</jsqlparser.version>
         <dom4j.version>2.1.3</dom4j.version>
+<!--        <springdoc-openapi.version>2.5.0</springdoc-openapi.version>-->
+<!--        原版本不生效，spring版本是2.3.2.RELEASE，需要版本是1.x.x才能支持，否则不兼容-->
+<!--        <springdoc-openapi.version>1.6.1</springdoc-openapi.version>-->
     </properties>
     <dependencies>
 
@@ -41,11 +44,11 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <!--        commons-pool12库，spring-boot-starter-data-redis的依赖默认包含了对lettuce-core的依赖，而lettuce-core使用了Apache Commons Pool库-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-pool2</artifactId>-->
-<!--        </dependency>-->
-<!--        是 Apache 提供的一个开源库，主要用于提供各种编码和解码的工具方法。它广泛应用于需要处理字符编码、数据加密、哈希算法等场景。-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.commons</groupId>-->
+        <!--            <artifactId>commons-pool2</artifactId>-->
+        <!--        </dependency>-->
+        <!--        是 Apache 提供的一个开源库，主要用于提供各种编码和解码的工具方法。它广泛应用于需要处理字符编码、数据加密、哈希算法等场景。-->
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
@@ -79,12 +82,30 @@
             <artifactId>java-jwt</artifactId>
             <version>4.4.0</version>
         </dependency>
-<!--        加密与安全认证，JWT签名，浙里建使用示例使用-->
+        <!--        加密与安全认证，JWT签名，浙里建使用示例使用-->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
             <version>0.9.0</version>
         </dependency>
+        <!-- 请求参数校验相关 -->
+
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <!--        生成api文档
+        1.自动生成 API 文档 SpringDoc OpenAPI 会根据 Spring Boot 项目中的控制器（@RestController）、请求映射（@RequestMapping）、参数（@RequestParam、@PathVariable 等）和模型（@Schema 等注解）自动生成 OpenAPI 3.0 规范的 API 文档。
+        2.提供 Swagger UI 可以通过访问 http://localhost:8080/swagger-ui.html 来查看和测试 API 文档
+        3. 支持 OpenAPI 3.0
+        4. 与 Spring Boot 无缝集成
+        5.可以通过配置文件（如 application.yml 或 application.properties）或代码自定义 API 文档的生成规则。
+        -->
+<!--        <dependency>-->
+<!--            <groupId>org.springdoc</groupId>-->
+<!--            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
+<!--            <version>${springdoc-openapi.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
     <build>
         <plugins>

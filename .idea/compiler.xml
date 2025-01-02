@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="testServer3.0" />
         <module name="javaGuid" />
         <module name="dataServer" />
         <module name="webServer" />
@@ -20,12 +21,14 @@
         <module name="springboot-websocket" />
         <module name="dbHelpServer" />
         <module name="springboot-async" />
-        <module name="testServer" />
         <module name="springboot-eventsandlisteners" />
+        <module name="testServer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eca-wechat" target="8" />
+      <module name="testServer (1)" target="1.8" />
+      <module name="testServer (2)" target="1.8" />
       <module name="webserver" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -45,6 +48,9 @@
       <module name="springboot-filter" options="-parameters" />
       <module name="springboot-websocket" options="-parameters" />
       <module name="testServer" options="-parameters" />
+      <module name="testServer (1)" options="-parameters" />
+      <module name="testServer (2)" options="-parameters" />
+      <module name="testServer3.0" options="-parameters" />
       <module name="webServer" options="-parameters" />
       <module name="webserver" options="-parameters" />
     </option>

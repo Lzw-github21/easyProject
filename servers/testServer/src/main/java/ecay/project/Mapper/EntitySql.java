@@ -1,5 +1,6 @@
 package ecay.project.Mapper;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.HashMap;
  */
 @Setter
 @Getter
+@Data
 public class EntitySql {
     private String sql;
     private HashMap<String, Object> params;
