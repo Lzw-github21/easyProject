@@ -44,6 +44,27 @@ security-key:
   jwt-key: '022bdc63c3c5a45879ee6581508b9d03adfec4a4658c0ab3d722e50c91a351c42c231cf43bb8f86998202bd301ec52239a74fc0c9a9aeccce604743367c9646b'
   md5-key: 'consmationecasof'
   md5-pwd-key: 'johnny depp'
+springdoc:
+  swagger-ui:
+    path: /a/swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+#    该配置只在3.0版本生效，此处不生效，用config配置方式才生效
+  openapi:
+    info:
+      title: 用户管理 API
+      description: 用户管理相关的 API 文档
+      version: 1.0.0
+#  group-configs:
+#    - group: 用户管理
+#      paths-to-match: /api/users/**
+#    - group: 商品管理
+#      paths-to-match: /api/products/**
+#    - group: 管理员接口
+#      packages-to-scan: com.example.admin
+#    - group: 公共接口
+#      paths-to-match: /api/**
+#      paths-to-exclude: /api/admin/**
 dmip: 192.168.1.83
 mysqlip: 127.0.0.1
 dmpass: k71+gtwGcFhL7tHFQUbU2w==

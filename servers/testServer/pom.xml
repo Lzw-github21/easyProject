@@ -101,11 +101,23 @@
         4. 与 Spring Boot 无缝集成
         5.可以通过配置文件（如 application.yml 或 application.properties）或代码自定义 API 文档的生成规则。
         -->
-<!--        <dependency>-->
-<!--            <groupId>org.springdoc</groupId>-->
-<!--            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
-<!--            <version>${springdoc-openapi.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+<!--        aop切面-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+<!--        添加后可以使用@SpringBootTest注解进行环境测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+<!--            下边的不注释掉只能在test目录下使用-->
+<!--            <scope>test</scope>-->
+        </dependency>
     </dependencies>
     <build>
         <plugins>

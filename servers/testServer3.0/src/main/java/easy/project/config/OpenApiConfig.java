@@ -1,0 +1,53 @@
+package easy.project.config;
+
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.OpenAPI;
+import org.springdoc.core.models.GroupedOpenApi;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class OpenApiConfig {
+
+    @Value("${springdoc.openapi.info.title}")
+    private String title;
+
+    @Value("${springdoc.openapi.info.description}")
+    private String description;
+
+    @Value("${springdoc.openapi.info.version}")
+    private String version;
+
+    @Bean
+    public OpenAPI customOpenAPI() {
+        return new OpenAPI()
+                .info(new Info()
+                        .title(title)
+                        .description(description)
+                        .version(version));
+    }
+
+    /**
+     * 对api进行分组，便于管理
+     * @return
+     */
+    @Bean
+    public GroupedOpenApi userApi() {
+        return GroupedOpenApi.builder()
+                .group("用户管理")
+                .pathsToMatch("/api/**")
+                .build();
+    }
+    /**
+     * 对api进行分组，便于管理
+     * @return
+     */
+    @Bean
+    public GroupedOpenApi adminApi() {
+        return GroupedOpenApi.builder()
+                .group("管理员管理")
+                .pathsToMatch("/api2/**")
+                .build();
+    }
+}

@@ -1,7 +1,7 @@
 2024-08-17 14:39:35,883 [main] WARN  [c.a.cloud.nacos.client.NacosPropertySourceBuilder] NacosPropertySourceBuilder.java:87 - Ignore the empty nacos configuration and get it based on dataId[api-gatewayserver] & group[DEFAULT_GROUP]
 2024-08-17 14:39:38,893 [main] WARN  [c.a.cloud.nacos.client.NacosPropertySourceBuilder] NacosPropertySourceBuilder.java:87 - Ignore the empty nacos configuration and get it based on dataId[api-gatewayserver.yml] & group[DEFAULT_GROUP]
 2024-08-17 14:39:38,897 [main] INFO  [o.s.c.b.c.PropertySourceBootstrapConfiguration] PropertySourceBootstrapConfiguration.java:112 - Located property source: [BootstrapPropertySource {name='bootstrapProperties-api-gatewayserver.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-api-gatewayserver,DEFAULT_GROUP'}]
-2024-08-17 14:39:38,940 [main] INFO  [ecay.project.ApiGateWayApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2024-08-17 14:39:38,940 [main] INFO  [easy.project.ApiGateWayApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
 2024-08-17 14:39:39,773 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:249 - Multiple Spring Data modules found, entering strict repository configuration mode!
 2024-08-17 14:39:39,776 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
 2024-08-17 14:39:39,816 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 16ms. Found 0 Redis repository interfaces.

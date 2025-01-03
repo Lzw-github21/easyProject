@@ -1,5 +1,5 @@
 server:
-  port: 28703
+  port: 28704
 spring:
   cloud:
     nacos:
@@ -38,10 +38,11 @@ springdoc:
     path: /swagger-ui.html
   api-docs:
     path: /v3/api-docs
-  info:
-    title: 用户管理 API
-    description: 用户管理相关的 API 文档
-    version: 1.0.0
+  openapi:
+    info:
+      title: 用户管理 API
+      description: 用户管理相关的 API 文档
+      version: 1.0.0
 #跨域配置
 cors:
   #是否允许跨域请求
