@@ -59,10 +59,6 @@
             <artifactId>cglib</artifactId>
             <version>3.2.5</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 <!--        此驱动依赖必须有，没有的话启动报错缺少驱动-->
         <dependency>
             <groupId>mysql</groupId>
@@ -117,6 +113,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
 <!--            下边的不注释掉只能在test目录下使用-->
 <!--            <scope>test</scope>-->
+        </dependency>
+<!--        websocket-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
     </dependencies>
     <build>

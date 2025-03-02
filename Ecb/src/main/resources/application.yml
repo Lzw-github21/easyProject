@@ -1,0 +1,71 @@
+spring:
+  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource  # 指定使用 Druid 数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver   # 数据库驱动类名
+    url: jdbc:mysql://localhost:3306/eca_mysql?useSSL=false&serverTimezone=UTC  # 数据库连接 URL
+    username: root  # 数据库用户名
+    password: root  # 数据库密码
+#mybatis-plus:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: EcbProject.cn.controller.mybatisplus
+#druid:
+#  # 数据源基本配置
+#  initial-size: 5  # 初始化时建立物理连接的个数
+#  min-idle: 5      # 最小连接池数量
+#  max-active: 20   # 最大连接池数量
+#  max-wait: 60000  # 获取连接时最大等待时间，单位毫秒
+#  time-between-eviction-runs-millis: 60000  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位毫秒
+#  min-evictable-idle-time-millis: 300000  # 配置一个连接在池中最小生存的时间，单位毫秒
+#
+#  # 配置一个连接在池中最大的超时时间，单位毫秒
+#  max-evictable-idle-time-millis: 300000
+#
+#  # 配置检测连接是否有效的sql
+#  validation-query: SELECT 1 FROM DUAL
+#  test-while-idle: true  # 申请连接时检测
+#  test-on-borrow: false  # 借出连接时执行检测
+#  test-on-return: false  # 归还连接时执行检测
+#
+#  # 打开PSCache，并且指定每个连接上PSCache的大小
+#  pool-prepared-statements: true
+#  max-pool-prepared-statement-per-connection-size: 20
+#
+#  # 配置监控统计
+#  filters: stat, wall, log4j  # 启用过滤器，stat 统计监控，wall 防 SQL 注入，log4j 记录日志
+#  connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000  # 合并多个DruidDataSource的监控数据，慢 SQL 时间
+#
+#  # 配置 StatFilter
+#  stat-filter:
+#    enabled: true  # 启用监控
+#    log-slow-sql: true  # 慢 SQL 打印
+#    slow-sql-millis: 5000  # 慢 SQL 时间（毫秒）
+#
+#  # 配置 WallFilter
+#  wall-filter:
+#    enabled: true  # 启用防火墙
+#    config:
+#      delete-allow: false  # 是否允许执行 delete 语句
+#      drop-table-allow: false  # 是否允许自动删除表
+#
+#  # 配置 Druid 数据源扩展
+#  web-stat-filter:
+#    enabled: true  # 启用Filter
+#    url-pattern: /*  # 过滤器拦截路径
+#    exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"  # 忽略路径
+logging:
+  level:
+    org.springframework.transaction: DEBUG
+    org.springframework.jdbc: DEBUG
+    # 如果需要全局设置日志级别，可以添加
+    root: INFO
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      #逻辑删除配置 0-未删除；1-删除 (默认值就是这样，可以不配置)
+      logic-not-delete-value: 1
+      logic-delete-value: 0
+    #枚举包扫描
+#    type-enums-package: EcbProject.cn.controller.Transactional.StatusEnum
+#    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler

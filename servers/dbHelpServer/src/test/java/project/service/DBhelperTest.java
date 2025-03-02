@@ -1,5 +1,7 @@
 package project.service;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,19 @@ class DBhelperTest {
         ecaSqlsConfig.getMap().remove("select_CorpPrjStatusNum_sgxkGuid");
         System.out.println(corpStatusInfo);
     }
-
+    @Test
+    void test() throws Exception {
+        String sql = "select * from sys_user_identity where identity_id = 86";
+        ecaSqlsConfig.getMap().put("sql", sql);
+        DataTable dataRows = dBhelper.QueryDataTable("","sql",new HashMap<>());
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data", dataRows);
+        System.out.println(JSON.toJSONString(jsonObject));
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("data", jsonObject);
+        String inserSql = "insert into usaa(data) values (@data)";
+        ecaSqlsConfig.getMap().put("inserSql", inserSql);
+        dBhelper.QueryDataTable("","inserSql",hashMap);
+    }
 
 }

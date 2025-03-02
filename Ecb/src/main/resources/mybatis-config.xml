@@ -1,0 +1,37 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE configuration-->
+<!--        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"-->
+<!--        "https://mybatis.org/dtd/mybatis-3-config.dtd">-->
+<!--<configuration>-->
+<!--    <environments default="development">-->
+<!--        <environment id="development">-->
+<!--            <transactionManager type="JDBC"/>-->
+<!--            <dataSource type="POOLED">-->
+<!--&lt;!&ndash;                <property name="driver" value="${driver}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="url" value="${url}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="username" value="${username}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="password" value="${password}"/>&ndash;&gt;-->
+<!--                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--                <property name="url" value="jdbc:mysql://localhost:3306/eca_mysql?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=UTC"/>-->
+<!--                <property name="username" value="root"/>-->
+<!--                <property name="password" value="root"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+<!--    <mappers>-->
+<!--        <mapper resource="UserMapper.xml"/>-->
+<!--    </mappers>-->
+<!--</configuration>-->
+<!--&lt;!&ndash;configuration（配置）-->
+<!--properties（属性）-->
+<!--settings（设置）-->
+<!--typeAliases（类型别名）-->
+<!--typeHandlers（类型处理器）-->
+<!--objectFactory（对象工厂）-->
+<!--plugins（插件）-->
+<!--environments（环境配置）-->
+<!--environment（环境变量）-->
+<!--transactionManager（事务管理器）-->
+<!--dataSource（数据源）-->
+<!--databaseIdProvider（数据库厂商标识）-->
+<!--mappers（映射器）&ndash;&gt;-->

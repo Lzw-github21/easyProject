@@ -131,23 +131,4 @@ public class TestController {
             out.close(); // 关闭PrintWriter，释放资源并刷新任何剩余的输出
         }
     }
-
-    public static void main(String[] args) {
-        System.out.println("SELECT DISTINCT\n" +
-                "\ttb.Legalmanname,\n" +
-                "\ttb.SCUCode,\n" +
-                "\ttb.SCUCode SCUCode1,\n" +
-                "\ttb.CorpCode,\n" +
-                "\ttb.CorpCode CorpCode1,\n" +
-                "\ttb.CorpName,\n" +
-                "\ttb.City,\n" +
-                "\ttb.county County,\n" +
-                "\ttb.OpinionDateTime OpinionDateTime1,\n" +
-                "\tDATE_FORMAT(tb.OpinionDateTime, '%Y-%m-%d') OpinionDateTime\n" +
-                "FROM\n" +
-                "\t zjk_sn_qyjbxx tb\n" +
-                "JOIN  zjk_sn_qyzz zz ON\n" +
-                "\ttb.CORPCODE = zz.CorpCode\n" +
-                "WHERE 1=1\n");
-    }
 }
