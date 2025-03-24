@@ -1,10 +1,10 @@
-spring:
-  datasource:
-#    type: com.alibaba.druid.pool.DruidDataSource  # 指定使用 Druid 数据源
-    driver-class-name: com.mysql.cj.jdbc.Driver   # 数据库驱动类名
-    url: jdbc:mysql://localhost:3306/eca_mysql?useSSL=false&serverTimezone=UTC  # 数据库连接 URL
-    username: root  # 数据库用户名
-    password: root  # 数据库密码
+#spring:
+#  datasource:
+##    type: com.alibaba.druid.pool.DruidDataSource  # 指定使用 Druid 数据源
+#    driver-class-name: com.mysql.cj.jdbc.Driver   # 数据库驱动类名
+#    url: jdbc:mysql://localhost:3306/eca_mysql?useSSL=false&serverTimezone=UTC  # 数据库连接 URL
+#    username: root  # 数据库用户名
+#    password: root  # 数据库密码
 #mybatis-plus:
 #  mapper-locations: classpath:mapper/*.xml
 #  type-aliases-package: EcbProject.cn.controller.mybatisplus
@@ -52,20 +52,39 @@ spring:
 #    enabled: true  # 启用Filter
 #    url-pattern: /*  # 过滤器拦截路径
 #    exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"  # 忽略路径
-logging:
-  level:
-    org.springframework.transaction: DEBUG
-    org.springframework.jdbc: DEBUG
-    # 如果需要全局设置日志级别，可以添加
-    root: INFO
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  global-config:
-    db-config:
-      #逻辑删除配置 0-未删除；1-删除 (默认值就是这样，可以不配置)
-      logic-not-delete-value: 1
-      logic-delete-value: 0
-    #枚举包扫描
-#    type-enums-package: EcbProject.cn.controller.Transactional.StatusEnum
-#    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+#logging:
+#  level:
+#    org.springframework.transaction: DEBUG
+#    org.springframework.jdbc: DEBUG
+#    # 如果需要全局设置日志级别，可以添加
+#    root: INFO
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  global-config:
+#    db-config:
+#      #逻辑删除配置 0-未删除；1-删除 (默认值就是这样，可以不配置)
+#      logic-not-delete-value: 1
+#      logic-delete-value: 0
+#    #枚举包扫描
+##    type-enums-package: EcbProject.cn.controller.Transactional.StatusEnum
+##    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+dmip: 192.168.1.83
+mysqlip: 127.0.0.1
+dmpass: ccirricczw618
+mysqlpass: root
+dee:
+  ds:
+    - guid: 12345678-0000-467d-8609-473195a02fcc
+      description: 达梦(dee主库_dmstand)
+      username: dmstand
+      password: ${dmpass}
+      url: jdbc:dm://${dmip}:5236/DMSTAND?useUnicode=true&characterEncoding=utf-8&mark=deemaster
+      driverClassName: dm.jdbc.driver.DmDriver
+
+    - guid: 76ad945c-26bc-4130-a9e1-0772f253f19c
+      description: 达梦从库配置(dee)
+      username: PUBLISH
+      password: ${dmpass}
+      url: jdbc:dm://${dmip}:5236/PUBLSIH?useUnicode=true&characterEncoding=utf-8&mark=deeslave
+      driverClassName: dm.jdbc.driver.DmDriver
